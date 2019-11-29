@@ -51,6 +51,5 @@ def Download_Data(url):
 
 if __name__ == '__main__':
     pool = Pool(processes=10)
-    for _ in tqdm.tqdm(pool.imap_unordered(Download_Data, range(10000)), total=10000):
+    for _ in tqdm.tqdm(pool.imap_unordered(Download_Data, range(25915)), total=25915):
         pass
-    
