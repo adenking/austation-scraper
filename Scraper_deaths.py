@@ -39,7 +39,7 @@ def Download_Data(url):
 
         brute_damage = soup.find('span', {'class': 'badge badge-dam badge-brute'})
 
-        brute_damage = soup.find('span', {'class': 'badge badge-dam badge-brain'})
+        brain_damage = soup.find('span', {'class': 'badge badge-dam badge-brain'})
 
         fire_damage = soup.find('span', {'class': 'badge badge-dam badge-fire'})
  
@@ -61,7 +61,7 @@ def Download_Data(url):
 
         with open('deaths.csv', 'a') as f:
             writer = csv.writer(f, delimiter=',')
-            writer.writerow([death_number, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name])
+            writer.writerow([death_id, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name])
 
 if __name__ == '__main__':
     pool = Pool(processes=20)
