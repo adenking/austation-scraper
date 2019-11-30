@@ -58,10 +58,15 @@ def Download_Data(url):
         except:
             murder_suspect_username = None
             murder_suspect_player_name = None
+        
+        game_id = soup.find('h3', {'class': 'card-header'}, text='Time of Death')
+        game_id = soup.findAll('a', href=True)
+        game_id = game_id.pop()
+        game_id = game_id.get_text().strip()
 
         with open('deaths.csv', 'a') as f:
             writer = csv.writer(f, delimiter=',')
-            writer.writerow([death_id, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name])
+            writer.writerow([death_id, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name, game_id])
 
 if __name__ == '__main__':
     pool = Pool(processes=20)
