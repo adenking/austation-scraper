@@ -35,21 +35,21 @@ def Download_Data(url):
             rank = rank.get_text().strip()
         
         cause_of_death = soup.find('h3', {'class': 'card-header'}, text='Cause of Death')
-        cause_of_death = cause_of_death.findNext('div', {'class': 'card-body h4'})
+        cause_of_death = cause_of_death.findNext('div', {'class': 'card-body h4'}).get_text().strip()
 
-        brute_damage = soup.find('span', {'class': 'badge badge-dam badge-brute'})
+        brute_damage = soup.find('span', {'class': 'badge badge-dam badge-brute'}).get_text()
 
-        brain_damage = soup.find('span', {'class': 'badge badge-dam badge-brain'})
+        brain_damage = soup.find('span', {'class': 'badge badge-dam badge-brain'}).get_text()
 
-        fire_damage = soup.find('span', {'class': 'badge badge-dam badge-fire'})
+        fire_damage = soup.find('span', {'class': 'badge badge-dam badge-fire'}).get_text()
  
-        oxy_damage = soup.find('span', {'class': 'badge badge-dam badge-oxy'})
+        oxy_damage = soup.find('span', {'class': 'badge badge-dam badge-oxy'}).get_text()
 
-        tox_damage = soup.find('span', {'class': 'badge badge-dam badge-tox'})
+        tox_damage = soup.find('span', {'class': 'badge badge-dam badge-tox'}).get_text()
 
-        clone_damage = soup.find('span', {'class': 'badge badge-dam badge-clone'})
+        clone_damage = soup.find('span', {'class': 'badge badge-dam badge-clone'}).get_text()
 
-        stamina_damage = soup.find('span', {'class': 'badge badge-dam badge-stamina'})
+        stamina_damage = soup.find('span', {'class': 'badge badge-dam badge-stamina'}).get_text()
 
         try:
             murder_suspect = soup.find('h3', {'class': 'card-header'}, text='Murder Suspect')

@@ -14,9 +14,7 @@ def Download_Data(url):
     if page_status == 'error code':
         pass
     else:
-        round_id = soup.find('div', {'class': 'col-md-2 col-sm-12 h3'})
-        round_id = round_id.findNext('i')
-        round_id = round_id.next_sibling.strip()
+        round_id = url
 
         station_name = soup.find('th', {'class': 'text-right align-middle'}, text='Station Name')
         station_name = station_name.findNext('td')
