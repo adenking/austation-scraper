@@ -26,11 +26,33 @@ def Download_Data(url):
         rank = rank.findNext('div', {'class': 'card-body h4'})
         try:
             traitor = rank.findNext('span').get_text()
-            traitor = True
         except:
-            traitor = False
-        if traitor == True:
-            rank = rank.get_text()[:-8].strip()
+            traitor = 'none'
+        if traitor != 'none':
+            if traitor == 'Nuclear Operative':
+                rank = rank.get_text()[:-18].strip()
+            elif traitor == 'Servant Of Ratvar':
+                rank = rank.get_text()[:-18].strip()
+            elif traitor == 'Blood Brother':
+                rank = rank.get_text()[:-13].strip()
+            elif traitor == 'Lone Operative':
+                rank = rank.get_text()[:-15].strip()
+            elif traitor == 'Changeling':
+                rank = rank.get_text()[:-11].strip()
+            elif traitor == 'Changeling':
+                rank = rank.get_text()[:-11].strip()
+            elif traitor == 'Highlander':
+                rank = rank.get_text()[:-11].strip()
+            elif traitor == 'Survivalist':
+                rank = rank.get_text()[:-12].strip()
+            elif traitor == 'Syndicate External Affairs Agent':
+                rank = rank.get_text()[:-33].strip()
+            elif traitor == 'Internal Affairs Agent':
+                rank = rank.get_text()[:-23].strip()
+            elif traitor == 'Syndicate Cyborg':
+                rank = rank.get_text()[:-17].strip()
+            else:
+                rank = rank.get_text()[:-8].strip()
         else:
             rank = rank.get_text().strip()
         
@@ -66,7 +88,7 @@ def Download_Data(url):
 
         with open('deaths.csv', 'a') as f:
             writer = csv.writer(f, delimiter=',')
-            writer.writerow([death_id, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name, game_id])
+            writer.writerow([death_id, username, player_name, rank, cause_of_death, brute_damage, brain_damage, fire_damage, oxy_damage, tox_damage, clone_damage, stamina_damage, murder_suspect_username, murder_suspect_player_name, traitor, game_id])
 
 if __name__ == '__main__':
     pool = Pool(processes=20)
